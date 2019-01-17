@@ -1,0 +1,39 @@
+C
+C  U-10Moly 20 w/o LEU                                              
+C
+C  **1                                                                     
+C  **2  This is 20 w/o U-235 alloyed with 10 w/o Molybdenum                
+C  **3  The density of U-10Moly is 17.08 g/cc                              
+C  **4                                                                     
+C
+C   Summary of MatMCNP (Version 4.0) Calculations:
+C
+C  Isotope  Number Fraction    Weight Fraction       Atoms/b-cm
+C  Mo-92        0.031333           0.013916          0.0015575
+C  Mo-94        0.019732           0.008954          0.0009808
+C  Mo-95        0.034158           0.015666          0.0016979
+C  Mo-96        0.035948           0.016660          0.0017868
+C  Mo-97        0.020702           0.009695          0.0010290
+C  Mo-98        0.052596           0.024885          0.0026143
+C  Mo-100       0.021176           0.010224          0.0010526
+C  U-234        0.000000           0.000000          0.0000000
+C  U-235        0.158472           0.180000          0.0078770
+C  U-238        0.625882           0.720000          0.0311101
+C
+C  The total compound atom density (atom/b-cm):  0.0497060
+C
+M100    42092.80c   0.031333
+        42094.80c   0.019732
+        42095.80c   0.034158
+        42096.80c   0.035948
+        42097.80c   0.020702
+        42098.80c   0.052596
+        42100.80c   0.021176
+        92234.80c   0.000000
+        92235.80c   0.158472
+        92238.80c   0.625882
+C
+C  To convert a particle flux to rad[Material]
+C  use FM  4.6621224E-11 100  -4  1 for neutrons
+C   or FM  4.6621224E-11 100  -5 -6 for photons.
+C

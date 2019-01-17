@@ -1,0 +1,29 @@
+C
+C  Boron Nitride                                                    
+C
+C  **1                                                                     
+C  **2  The atom fraction of boron nitride (BN) is used                    
+C  **3  The natural abundances are used for each element                   
+C  **4  The density of BN is 2.142 g/cc                                    
+C  **5  The MCNP material number is 100                                    
+C  **6                                                                     
+C
+C   Summary of MatMCNP (Version 4.0) Calculations:
+C
+C  Isotope  Number Fraction    Weight Fraction       Atoms/b-cm
+C   B-10        0.099500           0.080288          0.0103434
+C   B-11        0.400500           0.355329          0.0416333
+C   N-14        0.498180           0.562183          0.0517875
+C   N-15        0.001820           0.002200          0.0001892
+C
+C  The total compound atom density (atom/b-cm):  0.1039533
+C
+M100    05010.80c   0.099500
+        05011.80c   0.400500
+        07014.80c   0.498180
+        07015.80c   0.001820
+C
+C  To convert a particle flux to rad[Material]
+C  use FM  7.7746598E-10 100  -4  1 for neutrons
+C   or FM  7.7746598E-10 100  -5 -6 for photons.
+C

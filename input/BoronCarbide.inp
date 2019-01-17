@@ -1,0 +1,16 @@
+Boron Carbide (B4C)
+6   
+**1
+**2  The atom fraction of boron carbide (B4C) is used                 
+**3  Boron is enriched to 75 w/o B-10                                 
+**4  The density of B4Cis 2.48 g/cc                                   
+**5  The MNCP material number is 999                                  
+**6
+2.48000   
+atomic
+2   
+enr 5  0.8000000 
+  10    0.7500000 
+  11    0.2500000 
+nat 6  0.2000000 
+999       

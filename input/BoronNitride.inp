@@ -1,0 +1,14 @@
+Boron Nitride
+6   
+**1
+**2  The atom fraction of boron nitride (BN) is used                  
+**3  The natural abundances are used for each element                 
+**4  The density of BN is 2.142 g/cc                                  
+**5  The MCNP material number is 100                                  
+**6
+2.14200   
+atomic
+2   
+nat 5  0.5000000 
+nat 7  0.5000000 
+100       

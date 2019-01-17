@@ -1,0 +1,14 @@
+#
+#
+# Ignore object files
+#
+source/*.o
+source/*.obj
+source/*.mod
+#
+# Ignore input and output files
+#
+*.inp
+*.out
+#
+#

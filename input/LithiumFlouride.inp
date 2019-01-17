@@ -1,0 +1,16 @@
+Lithium Flouride
+6   
+**1
+**2  The atom fraction of Lithium Flouride (LiF) is used              
+**3  Lithium is enriched to 90 w/o Li-6                               
+**4  The density of LiF is 2.64 g/cc                                  
+**5  The MCNP material number is 100                                  
+**6
+2.64000   
+atomic
+2   
+enr 3  0.5000000 
+  6    0.9000000 
+  7    0.1000000 
+nat 9  0.5000000 
+100       

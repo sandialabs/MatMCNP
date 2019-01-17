@@ -1,0 +1,27 @@
+C
+C  Lithium Flouride                                                 
+C
+C  **1                                                                     
+C  **2  The atom fraction of Lithium Flouride (LiF) is used                
+C  **3  Lithium is enriched to 90 w/o Li-6                                 
+C  **4  The density of LiF is 2.64 g/cc                                    
+C  **5  The MCNP material number is 100                                    
+C  **6                                                                     
+C
+C   Summary of MatMCNP (Version 4.0) Calculations:
+C
+C  Isotope  Number Fraction    Weight Fraction       Atoms/b-cm
+C   Li-6        0.456512           0.218798          0.0578301
+C   Li-7        0.043488           0.024311          0.0055089
+C   F-19        0.500000           0.756891          0.0633390
+C
+C  The total compound atom density (atom/b-cm):  0.1266780
+C
+M100    03006.80c   0.456512
+        03007.80c   0.043488
+        09019.80c   0.500000
+C
+C  To convert a particle flux to rad[Material]
+C  use FM  7.6870499E-10 100  -4  1 for neutrons
+C   or FM  7.6870499E-10 100  -5 -6 for photons.
+C

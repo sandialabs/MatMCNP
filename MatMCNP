@@ -1,0 +1,21 @@
+#! /bin/csh -f
+#
+# MatMCNP Unix shell
+#
+#
+#
+  echo  "  "
+  echo  "  "
+  echo  "************************************************************"
+  echo  "*     Copyright 2019 National Technology & Engineering     *"
+  echo  "*             Solutions of Sandia, LLC (NTESS)             *"
+  echo  "*                                                          *"
+  echo  "* Under the terms of Contract DE-NA0003525 with NTESS, the *"
+  echo  "* U.S. Government retains certain rights in this software. *"
+  echo  "*                                                          *"
+  echo  "************************************************************"
+  echo  "  "
+  echo  "  "
+#
+#
+  perl ./matmcnp.pl $1

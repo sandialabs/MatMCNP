@@ -1,0 +1,46 @@
+C
+C  PA 2200 aka Polyamide 12 aka Nylon 12 aka Polylauryllactam       
+C
+C   The atom fraction of Polyamide 12 (C12H23NO)is used.                   
+C   The natural abundances are used for each element.                      
+C   The density of laser sintered Polyamide 12 is 0.93 g/cc,               
+C   per the EOS Safety Data Sheet.                                         
+C   The MCNP material number is found after the material.                  
+C
+C   Summary of MatMCNP (Version 4.0) Calculations:
+C
+C  Isotope  Number Fraction    Weight Fraction       Atoms/b-cm
+C   H-1         0.621550           0.117462          0.0652749
+C   H-2         0.000071           0.000027          0.0000075
+C   C-12        0.320854           0.721979          0.0336959
+C   C-13        0.003470           0.008462          0.0003644
+C   N-14        0.026929           0.070709          0.0028280
+C   N-15        0.000098           0.000277          0.0000103
+C   O-16        0.026961           0.080865          0.0028315
+C   O-17        0.000010           0.000033          0.0000011
+C   O-18        0.000055           0.000187          0.0000058
+C
+C  The total compound atom density (atom/b-cm):  0.1050195
+C
+C
+C  This material contains an isotope that is often modified by 
+C  an S(alpha,beta). Check MCNP Manual Appendix G to see if an
+C  S(alpha,beta) card (i.e., an MTn card) is required.
+C
+M100    01001.80c   0.621550
+        01002.80c   0.000071
+        06000.80c   0.324324
+        07014.80c   0.026929
+        07015.80c   0.000098
+        08016.80c   0.026961
+        08017.80c   0.000010
+        08016.80c   0.000055
+C
+C  Caution: The natural zaid is used for Carbon.
+C
+C  Caution: The O-18 has been set to O-16.
+C
+C  To convert a particle flux to rad[Material]
+C  use FM  1.8090452E-09 100  -4  1 for neutrons
+C   or FM  1.8090452E-09 100  -5 -6 for photons.
+C

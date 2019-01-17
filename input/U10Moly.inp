@@ -1,0 +1,15 @@
+U-10Moly 20 w/o LEU
+4   
+**1
+**2  This is 20 w/o U-235 alloyed with 10 w/o Molybdenum              
+**3  The density of U-10Moly is 17.08 g/cc                            
+**4
+17.08000  
+weight
+2   
+nat 42 0.1000000 
+enr 92 0.9000000 
+  234    0.0000000 
+  235    0.2000000 
+  238    0.8000000 
+100       

@@ -1,0 +1,15 @@
+PA 2200 aka Polyamide 12 aka Nylon 12 aka Polylauryllactam
+5
+ The atom fraction of Polyamide 12 (C12H23NO)is used.
+ The natural abundances are used for each element.
+ The density of laser sintered Polyamide 12 is 0.93 g/cc,
+ per the EOS Safety Data Sheet.
+ The MCNP material number is found after the material.
+0.93
+atomic
+4
+nat 1 0.621621622
+nat 6 0.324324324
+nat 7 0.027027027
+nat 8 0.027027027
+100
