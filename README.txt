@@ -138,6 +138,12 @@ Documentation:
     Cards for MCNP. Sandia Report, SAND2014-17693. Sandia National Laboratories,
     Albuquerque, NM. September 2014. (Unclassified Unlimited Release)
 
+If you use the code and CHOOSE to cite it, the preferred reference is given below:
+
+  K. R. DePriest and K. C. Saavedra. MatMCNP: A Code for Producing Material Cards
+  for MCNP. Sandia Report, SAND2014-17693. Sandia National Laboratories, 
+  Albuquerque, NM. September 2014.
+
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 
 Installation (assumes Perl is installed on the computer):
