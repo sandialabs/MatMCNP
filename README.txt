@@ -97,6 +97,7 @@ MatMCNP Directory
 
    A. MatMCNP.exe - MatMCNP Version 4.0 Windows executable
    B. xmatmcnp - MatMCNP Version 4.0 Linux excutable
+   C. MatMCNP_v4.0.exe - MatMCNP Version 4.0 statically-linked Windows executable
 
 (10) source subdirectory (source files for compiling code independently)
 
@@ -255,5 +256,9 @@ Work/MatMCNP> MatMCNP test
 Questions about installation, compilation, and/or running MatMCNP should be
   sent to K. Russell DePriest (krdepri@sandia.gov).
 
-
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ 
+ If you have runtime complaints such as "libifcoremd.dll was not found" on Windows,
+ copy the statically-linked executable from "MatMCNP_v4.0.exe" to "MatMCNP.exe" in the
+ bin subdirectory. This will likely fix that issue.
 
