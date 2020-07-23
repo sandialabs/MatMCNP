@@ -1,0 +1,37 @@
+Notes on changes for MatMCNP Version 4.1
+ - July 2020
+-------------------------------
+
+(1) The mass defects for each isotope were updated to reflect the values found here:
+    
+    https://www.nndc.bnl.gov/nudat2/indx_sigma.jsp 
+    
+    At the time of the update this tool stated this “Nuclear Wallet Cards database version of 7/10/2019.”
+
+(2) The value used to calculate the atomic masses (931.494 MeV/amu) was parameterized. As originally written
+    K. Kajder used the number in ~100 places in the code. Now, that value is a declared parameter in the 
+    "NWC_DATABASE" module. This was done because this value is likely to change (see comments in the source),
+    but it's value was NOT changed in this version. For all practical purposes, the difference between this value
+    and the official value will not be detectable in MatMCNP. However, should one wish to update mass defects in 
+    the future based on a different definition of the MeV/amu than the one used in 2004, it is easily 
+    accomplished with a one line change.
+
+(3) The default cross section set was updated to reflect the ENDF/B-VIII.0 release at 293.6 K (*.00c). For most
+    elements and isotopes, the only change was as simple as change "13027.80c" to "13027.00c". However, the new
+    cross section evaluation provided new evaluations for O-18 (treated as O-16 in previous versions), Neon 
+    (not treated by MatMCNP previously), Ytterbium (not treated by MatMCNP previously), and Osmium (not treated 
+    by MatMCNP previously). In addition, both Carbon and Platinum are now treated isotopically instead of as 
+    elements. These changes made the "naturalzaid" routine obsolete and required changes to the "print_data"
+    routine.
+
+(4) The code was modified to accept command line arguments for the input and output files. Now the code has 2 usages:
+
+    >> MatMCNP.exe
+
+    - The default "matmcnp.inp" and "matmcnp.out" files will be used. This method will continue to be used by the 
+      batch (csh) and perl scripts.
+
+    >> MatMCNP.exe  input-filename  output-filename
+
+    - This is the updated code and requires 2 arguments. The filenames should be less than 80 characters.
+

@@ -73,12 +73,13 @@
         END IF
      END DO
 
+
      !Print info. in MatMCNP format.
      WRITE (UNIT=11,FMT=777) mat_number,output_array(1)%zaid,output_array(1)%atom_percent
 
      !If there is more than one isotope in the mixture, then print out that information.
-     IF (adj_num_iso > 1) THEN
-         DO i=2,adj_num_iso
+     IF (num_iso > 1) THEN
+         DO i=2,num_iso
             WRITE (UNIT=11,FMT=888) output_array(i)%zaid,output_array(i)%atom_percent
          END DO
      END IF
