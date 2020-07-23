@@ -1,6 +1,6 @@
 !
-!  Copyright (c) 2019 National Technology & Engineering Solutions of 
-!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with 
+!  Copyright (c) 2019 National Technology & Engineering Solutions of
+!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with
 !  NTESS, the U.S. Government retains certain rights in this software.
 !
    SUBROUTINE title_comment
@@ -8,6 +8,9 @@
 
      !This subroutine created on June 10,2004, by Karen Kajder. It reads in 
      !the compound's title and comment cards and prints them to the output deck.
+     !
+     !Modifications to NWC Data by K. Russell DePriest (July 2020), so the
+     ! version number is incremented.
 
      !Variables.
      CHARACTER(LEN=65):: title
@@ -34,7 +37,7 @@
      111 FORMAT("C"/"C",2X,A65/"C")
      210 FORMAT(A72)
      222 FORMAT("C",2X,A72)
-     333 FORMAT("C"/"C",3X,"Summary of MatMCNP (Version 4.0) Calculations:"/"C"/"C",2X,"Isotope",2X, &
+     333 FORMAT("C"/"C",3X,"Summary of MatMCNP (Version 4.1) Calculations:"/"C"/"C",2X,"Isotope",2X, &
                 "Number Fraction",4X,"Weight Fraction",7X,"Atoms/b-cm")
 
    END SUBROUTINE title_comment

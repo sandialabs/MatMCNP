@@ -1,6 +1,6 @@
 !
-!  Copyright (c) 2019 National Technology & Engineering Solutions of 
-!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with 
+!  Copyright (c) 2019 National Technology & Engineering Solutions of
+!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with
 !  NTESS, the U.S. Government retains certain rights in this software.
 !
    SUBROUTINE Z6_Z10
@@ -18,6 +18,14 @@
      !
      ! - ENDF/B-VII Release 1 cross sections (that is, .80c) made the default
      !   on 05/09/2014 by K. Russell DePriest.
+     !
+     ! - ENDF/B-VIII.0 cross sections at 293.6 K (that is, .00c) made the default 
+     !   on 07/22/2020 by K. Russell DePriest.
+     !   - Changes include new evaluations for isotopic Carbon and Neon
+     !   - O-18 now has its own evaluation so it is not given the zaid for O-16
+     !
+     ! - Nuclear Wallet Card values verified on 07/22/2020 using 
+     !   "Nuclear Wallet Cards database version of 7/10/2019" on nndc.bnl.gov website.
   
      ! Local variables 
      REAL::holder, mass_of_element
@@ -31,18 +39,18 @@
      carbon_array(1)%symbol =" C-12 "
      carbon_array(1)%mass_defect = 0.0000
      carbon_array(1)%atom_percent = 98.93
-     carbon_array(1)%zaid = "06000.80c"
+     carbon_array(1)%zaid = "06012.00c"
 
      carbon_array(2)%z = 6
      carbon_array(2)%a = 13
      carbon_array(2)%symbol =" C-13 "
      carbon_array(2)%mass_defect = 3.1250
      carbon_array(2)%atom_percent = 1.07
-     carbon_array(2)%zaid = "06000.80c"
+     carbon_array(2)%zaid = "06013.00c"
 
      !Calculate isotopic mass for Carbon
      DO i=1, c_size
-          holder = carbon_array(i)%a + (carbon_array(i)%mass_defect/931.494)
+          holder = carbon_array(i)%a + (carbon_array(i)%mass_defect/MeV_amu)
 
           carbon_array(i)%isotopic_mass = holder
      END DO
@@ -72,18 +80,18 @@
      nitrogen_array(1)%symbol =" N-14 "
      nitrogen_array(1)%mass_defect = 2.8634
      nitrogen_array(1)%atom_percent = 99.636
-     nitrogen_array(1)%zaid = "07014.80c"
+     nitrogen_array(1)%zaid = "07014.00c"
 
      nitrogen_array(2)%z = 7
      nitrogen_array(2)%a = 15
      nitrogen_array(2)%symbol =" N-15 "
      nitrogen_array(2)%mass_defect = 0.1014
      nitrogen_array(2)%atom_percent = 0.364
-     nitrogen_array(2)%zaid = "07015.80c"
+     nitrogen_array(2)%zaid = "07015.00c"
 
      !Calculate isotopic mass for Nitrogen
      DO i=1, n_size
-          holder = nitrogen_array(i)%a + (nitrogen_array(i)%mass_defect/931.494)
+          holder = nitrogen_array(i)%a + (nitrogen_array(i)%mass_defect/MeV_amu)
 
           nitrogen_array(i)%isotopic_mass = holder
      END DO
@@ -113,25 +121,25 @@
      oxygen_array(1)%symbol =" O-16 "
      oxygen_array(1)%mass_defect = -4.7370
      oxygen_array(1)%atom_percent = 99.757
-     oxygen_array(1)%zaid = "08016.80c"
+     oxygen_array(1)%zaid = "08016.00c"
 
      oxygen_array(2)%z = 8
      oxygen_array(2)%a = 17
      oxygen_array(2)%symbol =" O-17 "
      oxygen_array(2)%mass_defect = -0.8087 
      oxygen_array(2)%atom_percent = 0.038
-     oxygen_array(2)%zaid = "08017.80c"
+     oxygen_array(2)%zaid = "08017.00c"
 
      oxygen_array(3)%z = 8
      oxygen_array(3)%a = 18
      oxygen_array(3)%symbol =" O-18 "
      oxygen_array(3)%mass_defect = -0.7828
      oxygen_array(3)%atom_percent = 0.205
-     oxygen_array(3)%zaid = "08016.80c"
+     oxygen_array(3)%zaid = "08018.00c"
 
      !Calculate isotopic mass for Oxygen
      DO i=1, o_size
-          holder = oxygen_array(i)%a + (oxygen_array(i)%mass_defect/931.494)
+          holder = oxygen_array(i)%a + (oxygen_array(i)%mass_defect/MeV_amu)
 
           oxygen_array(i)%isotopic_mass = holder
      END DO
@@ -161,11 +169,11 @@
      fluorine_array(1)%symbol =" F-19 "
      fluorine_array(1)%mass_defect = -1.4874
      fluorine_array(1)%atom_percent = 100.0
-     fluorine_array(1)%zaid = "09019.80c"
+     fluorine_array(1)%zaid = "09019.00c"
 
      !Calculate isotopic mass for Fluorine
      DO i=1, f_size
-          holder = fluorine_array(i)%a + (fluorine_array(i)%mass_defect/931.494)
+          holder = fluorine_array(i)%a + (fluorine_array(i)%mass_defect/MeV_amu)
 
           fluorine_array(i)%isotopic_mass = holder
      END DO
@@ -196,25 +204,25 @@
      neon_array(1)%symbol ="Ne-20 "
      neon_array(1)%mass_defect = -7.0419
      neon_array(1)%atom_percent = 90.48
-     neon_array(1)%zaid = "10020.42c"
+     neon_array(1)%zaid = "10020.00c"
 
      neon_array(2)%z = 10
      neon_array(2)%a = 21
      neon_array(2)%symbol ="Ne-21 "
      neon_array(2)%mass_defect = -5.7317
      neon_array(2)%atom_percent = 0.27
-     neon_array(2)%zaid = " no zaid "
+     neon_array(2)%zaid = "10021.00c"
 
      neon_array(3)%z = 10
      neon_array(3)%a = 22
      neon_array(3)%symbol ="Ne-22 "
      neon_array(3)%mass_defect = -8.0247
      neon_array(3)%atom_percent = 9.25
-     neon_array(3)%zaid = " no zaid "
+     neon_array(3)%zaid = "10022.00c"
 
      !Calculate isotopic mass for Neon
      DO i=1, ne_size
-          holder = neon_array(i)%a + (neon_array(i)%mass_defect/931.494)
+          holder = neon_array(i)%a + (neon_array(i)%mass_defect/MeV_amu)
 
           neon_array(i)%isotopic_mass = holder
      END DO

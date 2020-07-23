@@ -1,6 +1,6 @@
 !
-!  Copyright (c) 2019 National Technology & Engineering Solutions of 
-!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with 
+!  Copyright (c) 2019 National Technology & Engineering Solutions of
+!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with
 !  NTESS, the U.S. Government retains certain rights in this software.
 !
    MODULE NWC_DATABASE
@@ -32,6 +32,12 @@
           pr_mass,nd_mass,sm_mass,eu_mass,gd_mass,tb_mass,dy_mass,ho_mass,er_mass,tm_mass,&
           yb_mass,lu_mass,hf_mass,ta_mass,w_mass,re_mass,os_mass,ir_mass,pt_mass,au_mass, &
           hg_mass,tl_mass,pb_mass,bi_mass,th_mass,u_mass
+     !
+     ! 931.494013 MeV/amu per 2000 NWC pdf
+     ! 931.49410242 MeV/amu per NIST CODATA
+     ! Using the value that Kajder used in 2004 (931.494) - 7/22/2020
+     REAL, PARAMETER :: MeV_amu = 931.494
+
            
      !NWC Data with various dimension attributes
      TYPE(nwc_data), DIMENSION(1)::beryllium_array, fluorine_array,sodium_array, &
