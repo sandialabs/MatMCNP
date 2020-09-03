@@ -18,6 +18,12 @@
      !
      ! - ENDF/B-VII Release 1 cross sections (that is, .80c) made the default
      !   on 05/09/2014 by K. Russell DePriest.
+     !
+     ! - ENDF/B-VIII.0 cross sections at 293.6 K (that is, .00c) made the default 
+     !   on 07/22/2020 by K. Russell DePriest.
+     !
+     ! - Nuclear Wallet Card values verified on 07/22/2020 using 
+     !   "Nuclear Wallet Cards database version of 7/10/2019" on nndc.bnl.gov website.
      
 
      ! Local variables 
@@ -32,18 +38,18 @@
      hydrogen_array(1)%symbol =" H-1  "
      hydrogen_array(1)%mass_defect = 7.2889
      hydrogen_array(1)%atom_percent = 99.9885
-     hydrogen_array(1)%zaid = "01001.80c"
+     hydrogen_array(1)%zaid = "01001.00c"
 
      hydrogen_array(2)%z = 1
      hydrogen_array(2)%a = 2
      hydrogen_array(2)%symbol =" H-2  "
      hydrogen_array(2)%mass_defect = 13.1357
      hydrogen_array(2)%atom_percent = 0.0115
-     hydrogen_array(2)%zaid = "01002.80c"
+     hydrogen_array(2)%zaid = "01002.00c"
 
      !Calculate isotopic mass for Hydrogen
      DO i=1, h_size
-          holder = hydrogen_array(i)%a + (hydrogen_array(i)%mass_defect/931.494)
+          holder = hydrogen_array(i)%a + (hydrogen_array(i)%mass_defect/MeV_amu)
 
           hydrogen_array(i)%isotopic_mass = holder
      END DO
@@ -73,18 +79,18 @@
      helium_array(1)%symbol =" He-3 "
      helium_array(1)%mass_defect = 14.9312
      helium_array(1)%atom_percent = 0.000134
-     helium_array(1)%zaid = "02003.80c"
+     helium_array(1)%zaid = "02003.00c"
 
      helium_array(2)%z = 2
      helium_array(2)%a = 4
      helium_array(2)%symbol =" He-4 "
      helium_array(2)%mass_defect = 2.4249
      helium_array(2)%atom_percent = 99.999866
-     helium_array(2)%zaid = "02004.80c"
+     helium_array(2)%zaid = "02004.00c"
 
      !Calculate isotopic mass for Helium
      DO i=1, he_size
-          holder = helium_array(i)%a + (helium_array(i)%mass_defect/931.494)
+          holder = helium_array(i)%a + (helium_array(i)%mass_defect/MeV_amu)
 
           helium_array(i)%isotopic_mass = holder
      END DO
@@ -114,18 +120,18 @@
      lithium_array(1)%symbol =" Li-6 "
      lithium_array(1)%mass_defect = 14.0868
      lithium_array(1)%atom_percent = 7.59
-     lithium_array(1)%zaid = "03006.80c"
+     lithium_array(1)%zaid = "03006.00c"
 
      lithium_array(2)%z = 3
      lithium_array(2)%a = 7
      lithium_array(2)%symbol =" Li-7 "
-     lithium_array(2)%mass_defect = 14.9070
+     lithium_array(2)%mass_defect = 14.9071
      lithium_array(2)%atom_percent = 92.41
-     lithium_array(2)%zaid = "03007.80c"
+     lithium_array(2)%zaid = "03007.00c"
 
      !Calculate isotopic mass for Lithium
      DO i=1, li_size
-          holder = lithium_array(i)%a + (lithium_array(i)%mass_defect/931.494)
+          holder = lithium_array(i)%a + (lithium_array(i)%mass_defect/MeV_amu)
 
           lithium_array(i)%isotopic_mass = holder
      END DO
@@ -155,12 +161,12 @@
      beryllium_array(1)%symbol =" Be-9 "
      beryllium_array(1)%mass_defect = 11.3484
      beryllium_array(1)%atom_percent = 100
-     beryllium_array(1)%zaid = "04009.80c"
+     beryllium_array(1)%zaid = "04009.00c"
 
 
      !Calculate isotopic mass for Beryllium
      DO i=1, be_size
-          holder = beryllium_array(i)%a + (beryllium_array(i)%mass_defect/931.494)
+          holder = beryllium_array(i)%a + (beryllium_array(i)%mass_defect/MeV_amu)
 
           beryllium_array(i)%isotopic_mass = holder
      END DO
@@ -188,20 +194,20 @@
      boron_array(1)%z = 5
      boron_array(1)%a = 10
      boron_array(1)%symbol =" B-10 "
-     boron_array(1)%mass_defect = 12.0507 
+     boron_array(1)%mass_defect = 12.0506
      boron_array(1)%atom_percent = 19.9
-     boron_array(1)%zaid = "05010.80c"
+     boron_array(1)%zaid = "05010.00c"
 
      boron_array(2)%z = 5
      boron_array(2)%a = 11
      boron_array(2)%symbol =" B-11 "
-     boron_array(2)%mass_defect = 8.6679
+     boron_array(2)%mass_defect = 8.6677
      boron_array(2)%atom_percent = 80.1
-     boron_array(2)%zaid = "05011.80c"
+     boron_array(2)%zaid = "05011.00c"
 
      !Calculate isotopic mass for Boron
      DO i=1, b_size
-          holder = boron_array(i)%a + (boron_array(i)%mass_defect/931.494)
+          holder = boron_array(i)%a + (boron_array(i)%mass_defect/MeV_amu)
 
           boron_array(i)%isotopic_mass = holder
      END DO

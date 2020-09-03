@@ -1,6 +1,6 @@
 !
-!  Copyright (c) 2019 National Technology & Engineering Solutions of 
-!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with 
+!  Copyright (c) 2019 National Technology & Engineering Solutions of
+!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with
 !  NTESS, the U.S. Government retains certain rights in this software.
 !
    SUBROUTINE print_data(total_atom_b_cm,iso_atom_b_cm,mat_number,z_of_element)
@@ -20,6 +20,12 @@
      ! - Additional changes with the release of ENDF/B-VII release 1
      !    made on 05/09/2014
      ! - Clean up to improve output formatting
+     !
+     !Modified by K. Russell DePriest on July 22 - July 23, 2020 to account for new
+     ! ENDF/B-VIII.0 cross sections and isotope data updated to the NWC July 2019 database
+     ! values. Additional changes to allow for commandline arguments for input and output
+     ! filenames for use directly instead of through scripts. The subroutine "naturalzaid"
+     ! is no longer needed with latest cross section update.
      !
 
      !Dummy variables
@@ -67,46 +73,16 @@
         END IF
      END DO
 
-     !Stop running the program if the compound contains elements (or isotopes) that do not have a zaid.
-     DO i=1, num_iso
-        IF (output_array(i)%z == 10) THEN  !Neon does not have the zaids necessary to create material card
-            WRITE (UNIT=11, FMT=38)
-            STOP
-        ELSE IF (output_array(i)%z == 70) THEN  !Ytterbium does not have the zaids necessary to create material card
-            WRITE (UNIT=11, FMT=38)
-            STOP
-        ELSE IF (output_array(i)%z == 76) THEN  !Osmium does not have the zaids necessary to create material card
-            WRITE (UNIT=11, FMT=38)
-            STOP
-        ELSE
-            CONTINUE
-        END IF
-     END DO
-
-     ! Call subroutine that will adjust the information for elements that use a natural zaid.
-     CALL naturalzaid(adj_num_iso)
 
      !Print info. in MatMCNP format.
      WRITE (UNIT=11,FMT=777) mat_number,output_array(1)%zaid,output_array(1)%atom_percent
 
      !If there is more than one isotope in the mixture, then print out that information.
-     IF (adj_num_iso > 1) THEN
-         DO i=2,adj_num_iso
+     IF (num_iso > 1) THEN
+         DO i=2,num_iso
             WRITE (UNIT=11,FMT=888) output_array(i)%zaid,output_array(i)%atom_percent
          END DO
      END IF
-
-     !Print caution messages for the elements that use a natural zaid 
-     ! or elements that have a "quirk" like oxygen, carbon, and platinum.
-     DO i=1,num_iso
-        IF (z_of_element(i) == 8) THEN
-            WRITE (UNIT=11, FMT=999)
-        ELSE IF (z_of_element(i) == 6) THEN
-            WRITE (UNIT=11, FMT=20)
-        ELSE IF (z_of_element(i) == 78) THEN
-            WRITE (UNIT=11, FMT=34)
-        END IF
-     END DO
 
   
      !Format statements
@@ -114,11 +90,6 @@
      555 FORMAT ("C"/"C",2X,"The total compound atom density (atom/b-cm):  ",F9.7,/"C")
      777 FORMAT ("M",A5,2X,A9,2X,F9.6)
      888 FORMAT (8X,A9,2X,F9.6)
-     999 FORMAT ("C"/"C",2X,"Caution: The O-18 has been set to O-16.")
-      20 FORMAT ("C"/"C",2X,"Caution: The natural zaid is used for Carbon.")
-      34 FORMAT ("C"/"C",2X,"Caution: The natural zaid is used for Platinum.")
-      38 FORMAT ("C"/"C",2X, "One or more of the elements in the compound does not have a cross-section"/ &
-      &                    "C",2X,"and therefore the MCNP Card will not be created.")
       39 FORMAT ("C"/"C",2X,"This material contains an isotope that is often modified by "/"C",2X,"an S(alpha,beta).&
       & Check MCNP Manual Appendix G to see if an"/"C",2X,"S(alpha,beta) card (i.e., an MTn card) is required."/"C")
 

@@ -1,6 +1,6 @@
 !
-!  Copyright (c) 2019 National Technology & Engineering Solutions of 
-!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with 
+!  Copyright (c) 2019 National Technology & Engineering Solutions of
+!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with
 !  NTESS, the U.S. Government retains certain rights in this software.
 !
 !****************************************************************************
@@ -10,10 +10,22 @@
 !  PURPOSE:  This program calculates the material cards for MCNP/MCNPX input
 !            decks.  The atomic and weight fractions are calculated for each
 !            isotope in the material regardless of whether or not the cross
-!            section data exists at the isotopic level for the elements in 
-!            the material.  In addition to the material computation, the 
+!            section data exists at the isotopic level for the elements in
+!            the material.  In addition to the material computation, the
 !            FM card for converting neutron and gamma fluences to dose in
 !            the material is also generated.
+!
+!  Version Notes:
+!   Version 4.0
+!   - First open source code release
+!   Version 4.1
+!    - NWC Data updated to "Nuclear Wallet Cards database version of 7/10/2019"
+!    - Default zaids for material cards become ENDF/B-VIII.0 at 293.6 K (*.00c)
+!    - New xsec evaluations for O-18, Neon, Ytterbium, Osmium, and Platinum.
+!    - Carbon must now be treated isotopically rather than as an element.
+!    - The "naturalzaid" routine is no longer is used. It is left as a "CONTINUE"
+!        statement in the Fortran, but it isn't called.
+!    - Command line arguments for input/output file are now allowed.
 !
 !****************************************************************************
 !
@@ -23,18 +35,18 @@ PROGRAM MatMCNP
    IMPLICIT NONE
 
    !Variables
-   CHARACTER(LEN=11)::infile,outfile
+   CHARACTER(LEN=80)::infile,outfile
 
    REAL:: compound_density,total_atom_b_cm,total_fake_atomic_weight,FM_value
    REAL, DIMENSION(92):: a_or_w_percent, w_percent,a_percent, fake_atomic_weight
    REAL,DIMENSION(300):: iso_atom_b_cm
-   INTEGER:: number_elements,i
+   INTEGER:: num_args,number_elements,i
    INTEGER, DIMENSION(92)::z_of_element
    CHARACTER(LEN=3), DIMENSION(92)::natural_or_enriched
    CHARACTER(LEN=6):: atomic, weight,symbol,atom_or_weight
    CHARACTER(LEN=5)::mat_number
 	
-   !Call to subroutine with the elements and their nuclear card information 
+   !Call to subroutine with the elements and their nuclear card information
    !in groups of five.
    CALL Z1_Z5
    CALL Z6_Z10
@@ -57,12 +69,29 @@ PROGRAM MatMCNP
    CALL Z91_Z92
 
    !Assign names to input and output file.
-   ! - Eventually I plan to make this an commandline option, so that
-   !   the user can specify both the input and output file names. 
-   !   Currently, the MatMCNP program runs with a script that
-   !   performs the file name moves for the user instead.
-   infile = "matmcnp.inp"
-   outfile = "matmcnp.out"
+   !
+   num_args = COMMAND_ARGUMENT_COUNT()
+   IF (num_args == 0) THEN
+     ! The old method of input and output.
+     infile = "matmcnp.inp"
+     outfile = "matmcnp.out"
+   ELSE IF (num_args == 2) THEN
+     ! Accept input as argument #1 and output as argument #2
+     ! Not checking for it, but this will fail for filenames > 80 characters.
+     CALL GET_COMMAND_ARGUMENT(1, infile)
+     infile = TRIM(infile)
+     CALL GET_COMMAND_ARGUMENT(2, outfile)
+     outfile = TRIM(outfile)
+   ELSE
+     PRINT*, "MatMCNP expects no arguments OR 2 arguments."
+     PRINT*, ""
+     PRINT*, " If no argument is used, matmcnp.inp is the input file and"
+     PRINT*, "   matmcnp.out is the output file."
+     PRINT*, ""
+     PRINT*, " If 2 arguments are used, the input filename is the 1st argument"
+     PRINT*, "   and the output filename is the 2nd argument."
+     STOP
+   END IF
 
    ! Open the input and output file.
    OPEN (UNIT = 10, FILE = infile, STATUS = "OLD")

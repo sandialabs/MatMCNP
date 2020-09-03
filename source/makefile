@@ -5,7 +5,7 @@
 #
 #
 objects =   NWC.o NWC-Database.o  atom_density.o  enriched.o \
-            MatMCNP.o  naturalzaid.o  print_data.o  read_data.o  \
+            MatMCNP.o print_data.o  read_data.o  \
             title_comment.o  weight_percent.o  Z1_Z5.o  Z6_Z10.o \
             Z11_Z15.o  Z16_Z20.o  Z21_Z25.o  Z26_Z30.o Z31_Z35.o \
             Z36_Z40.o  Z41_Z45.o  Z46_Z50.o  Z51_Z55.o Z56_Z60.o \
@@ -37,7 +37,6 @@ NWC-Database.o : NWC.o
 atom_density.o : NWC.o NWC-Database.o 
 enriched.o : NWC.o NWC-Database.o 
 MatMCNP.o : NWC.o NWC-Database.o 
-naturalzaid.o : NWC.o NWC-Database.o 
 print_data.o : NWC.o NWC-Database.o 
 read_data.o : NWC.o NWC-Database.o
 weight_percent.o : NWC.o NWC-Database.o 

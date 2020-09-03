@@ -1,10 +1,10 @@
 !
-!  Copyright (c) 2019 National Technology & Engineering Solutions of 
-!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with 
+!  Copyright (c) 2019 National Technology & Engineering Solutions of
+!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with
 !  NTESS, the U.S. Government retains certain rights in this software.
 !
    SUBROUTINE Z91_Z92
-    USE NWC_DATABASE
+     USE NWC_DATABASE
      USE NWC_2000
      IMPLICIT NONE
 
@@ -22,6 +22,12 @@
      !
      ! - ENDF/B-VII Release 1 cross sections (that is, .80c) made the default
      !   on 05/09/2014 by K. Russell DePriest.
+     !
+     ! - ENDF/B-VIII.0 cross sections at 293.6 K (that is, .00c) made the default 
+     !   on 07/22/2020 by K. Russell DePriest.
+     !
+     ! - Nuclear Wallet Card values verified on 07/22/2020 using 
+     !   "Nuclear Wallet Cards database version of 7/10/2019" on nndc.bnl.gov website.
 
      !Local variables 
      REAL::holder, mass_of_element
@@ -33,27 +39,27 @@
      uranium_array(1)%z = 92
      uranium_array(1)%a = 234
      uranium_array(1)%symbol ="U-234 "
-     uranium_array(1)%mass_defect = 38.1480
+     uranium_array(1)%mass_defect = 38.1450
      uranium_array(1)%atom_percent = 0.0054
-     uranium_array(1)%zaid = "92234.80c"
+     uranium_array(1)%zaid = "92234.00c"
 
      uranium_array(2)%z = 92
      uranium_array(2)%a = 235
      uranium_array(2)%symbol ="U-235 "
-     uranium_array(2)%mass_defect = 40.9218
+     uranium_array(2)%mass_defect = 40.9188
      uranium_array(2)%atom_percent = 0.7204
-     uranium_array(2)%zaid = "92235.80c"
+     uranium_array(2)%zaid = "92235.00c"
 
      uranium_array(3)%z = 92
      uranium_array(3)%a = 238
      uranium_array(3)%symbol ="U-238 "
-     uranium_array(3)%mass_defect = 47.3100
+     uranium_array(3)%mass_defect = 47.3077
      uranium_array(3)%atom_percent = 99.2742
-     uranium_array(3)%zaid = "92238.80c"
+     uranium_array(3)%zaid = "92238.00c"
 
      !Calculate isotopic mass for Uranium
      DO i=1, u_size
-          holder = uranium_array(i)%a + (uranium_array(i)%mass_defect/931.494)
+          holder = uranium_array(i)%a + (uranium_array(i)%mass_defect/MeV_amu)
 
           uranium_array(i)%isotopic_mass = holder
      END DO

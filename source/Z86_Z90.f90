@@ -1,6 +1,6 @@
 !
-!  Copyright (c) 2019 National Technology & Engineering Solutions of 
-!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with 
+!  Copyright (c) 2019 National Technology & Engineering Solutions of
+!  Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with
 !  NTESS, the U.S. Government retains certain rights in this software.
 !
    SUBROUTINE Z86_Z90
@@ -22,6 +22,12 @@
      !
      ! - ENDF/B-VII Release 1 cross sections (that is, .80c) made the default
      !   on 05/09/2014 by K. Russell DePriest.
+     !
+     ! - ENDF/B-VIII.0 cross sections at 293.6 K (that is, .00c) made the default 
+     !   on 07/22/2020 by K. Russell DePriest.
+     !
+     ! - Nuclear Wallet Card values verified on 07/22/2020 using 
+     !   "Nuclear Wallet Cards database version of 7/10/2019" on nndc.bnl.gov website.
 
      !Local variables 
      REAL::holder, mass_of_element
@@ -33,13 +39,13 @@
      thorium_array(1)%z = 90
      thorium_array(1)%a = 232
      thorium_array(1)%symbol ="Th-232"
-     thorium_array(1)%mass_defect = 35.4526
+     thorium_array(1)%mass_defect = 35.4467
      thorium_array(1)%atom_percent = 100.0
-     thorium_array(1)%zaid = "90232.80c"
+     thorium_array(1)%zaid = "90232.00c"
 
      !Calculate isotopic mass for Thorium
      DO i=1, th_size
-          holder = thorium_array(i)%a + (thorium_array(i)%mass_defect/931.494)
+          holder = thorium_array(i)%a + (thorium_array(i)%mass_defect/MeV_amu)
 
           thorium_array(i)%isotopic_mass = holder
      END DO
