@@ -20,7 +20,7 @@ rem
 rem
 rem   Copy the executable file to working directory
 rem
-  COPY bin\MatMCNP.exe  MatMCNP.exe
+  COPY bin\MatMCNP_vXGEN.exe  MatMCNP.exe
 rem
 rem
 rem   Run the job

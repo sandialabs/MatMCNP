@@ -1,0 +1,13 @@
+Dry Air
+3
+Standard Density:  1.205e-3 g/cc @ 20 deg C, 1 atm
+See "Introduction to Radiological Physics 
+       and Radiation Dosimetry" by Attix p.531-532
+1.205e-3
+weight
+4
+nat 6   0.000124
+nat 7   0.755268
+nat 8   0.231781
+nat 18  0.012827
+100
