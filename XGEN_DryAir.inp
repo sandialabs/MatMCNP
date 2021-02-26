@@ -1,0 +1,35 @@
+TITLE
+... Dry Air                                                         
+energy 1.00
+*                                                                                
+*   Standard Density:  1.205e-3 g/cc @ 20 deg C, 1 atm                           
+*   See "Introduction to Radiological Physics                                    
+*          and Radiation Dosimetry" by Attix p.531-532                           
+*                                                                                
+*    Summary of MatMCNP (Version 4.1) Calculations:                              
+*                                                                                
+*   Isotope  Number Fraction    Weight Fraction       Atoms/b-cm                 
+*    C-12        0.000149           0.000123          0.0000000                  
+*    C-13        0.000002           0.000001          0.0000000                  
+*    N-14        0.781575           0.752324          0.0000390                  
+*    N-15        0.002855           0.002944          0.0000001                  
+*    O-16        0.210236           0.231153          0.0000105                  
+*    O-17        0.000080           0.000094          0.0000000                  
+*    O-18        0.000432           0.000535          0.0000000                  
+*   Ar-36        0.000016           0.000039          0.0000000                  
+*   Ar-38        0.000003           0.000008          0.0000000                  
+*   Ar-40        0.004653           0.012781          0.0000002                  
+*                                                                                
+*   The total compound atom density (atom/b-cm):  0.0000499                      
+*                                                                                
+*                                                                                
+*   This material contains an isotope that is often modified by                  
+*   an S(alpha,beta). Check MCNP Manual Appendix G to see if an                  
+*   S(alpha,beta) card (i.e., an MTn card) is required.                          
+*                                                                                
+MATERIAL
+  C    0.0001240
+  N    0.7552680
+  O    0.2317810
+  Ar   0.0128270
+DENSITY    0.0012050

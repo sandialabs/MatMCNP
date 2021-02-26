@@ -1,0 +1,40 @@
+Notes on changes for MatMCNP Version XGEN
+ - February 2021
+-------------------------------
+
+This modification allows the user to create material files for use with the xgen program. XGEN
+is a utility code for producing continuous energy electron/photon cross sections for use with the
+Integrated Tiger Series (ITS) code system. This modification to MatMCNP does not change any of the 
+calculations previously discussed and verified. It is simply a new format to output the results.
+
+To invoke the XGEN input generation, simply replace the material number intended for the MCNP
+material number with "xgen". The xgen input uses a default energy of 1.0 MeV which must be changed if
+your ITS problem has a different maximum energy. The density output in the xgen input file will need
+verification if you are using low density (< 1.0e-5 g/cc) materials.
+
+With these changes, MatMCNP expects no arguments, 2 arguments, or 3 arguments.
+ (1) No arguments on the command line:
+     - Input file:  matmcnp.inp
+     - Output file: matmcnp.out
+     - XGEN input:  matxgen.inp
+
+ (2) Two arguments on the command line:
+     - Input file:  First argument
+     - Output file: Second argument
+     - XGEN input:  matxgen.inp
+
+ (3) Three arguments on the command line:
+     - Input file:  First argument
+     - Output file: Second argument
+     - XGEN input:  Third argument
+
+An example using Dry Air has been added.
+
+New Files:
+(1) VersionXGEN_Notes.txt - This file
+(2) DryAir_NoXGEN.inp - An input file using original MatMCNP input format
+(3) DryAir_NoXGEN.out - Output file from (2)
+(4) DryAir_XGEN.inp - A MatMCNP input file that will generate an xgen input
+(5) DryAir_XGEN.out - Output file from (4)
+(6) XGEN_DryAir.inp - A file that can be used by xgen to generate cross sections for ITS
+(7) bin/MatMCNP_vXGEN.exe - A Windows executable built with gfortran using the makefile in /source

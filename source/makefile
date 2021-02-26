@@ -62,7 +62,7 @@ Z91_Z92.o : NWC.o NWC-Database.o
 
 
 clean:
-	rm -f *.o *.mod 
+	rm -f *.o *.mod *.obj
 
 
 

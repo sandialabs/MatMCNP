@@ -4,7 +4,7 @@
 !  NTESS, the U.S. Government retains certain rights in this software.
 !
    SUBROUTINE read_data(compound_density,atom_or_weight,number_elements, z_of_element, &
-                        natural_or_enriched,a_or_w_percent,mat_number)
+                        natural_or_enriched,a_or_w_percent,mat_number, oflag)
      USE NWC_2000
      USE NWC_DATABASE
      IMPLICIT NONE
@@ -22,7 +22,7 @@
      CHARACTER(LEN=6),INTENT(OUT)::atom_or_weight
      CHARACTER(LEN=5),INTENT(OUT)::mat_number
      CHARACTER(LEN=3), DIMENSION(92),INTENT(OUT)::natural_or_enriched
-     INTEGER,INTENT(OUT):: number_elements
+     INTEGER,INTENT(OUT):: number_elements, oflag
      INTEGER, DIMENSION(92),INTENT(OUT)::z_of_element
 
      !Local variables
@@ -71,6 +71,12 @@
 
      !Read in material number.
      READ (UNIT=10,FMT=4) mat_number
+     
+     IF (mat_number == 'xgen') THEN
+         oflag = 1
+     ELSE
+         oflag = 0
+     END IF
 
      !Normalize atom or weight percent to 1.0 (or 100%)
      a_or_w_percent = (a_or_w_percent/holder)

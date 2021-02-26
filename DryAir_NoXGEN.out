@@ -1,0 +1,43 @@
+C
+C  Dry Air                                                          
+C
+C  Standard Density:  1.205e-3 g/cc @ 20 deg C, 1 atm                      
+C  See "Introduction to Radiological Physics                               
+C         and Radiation Dosimetry" by Attix p.531-532                      
+C
+C   Summary of MatMCNP (Version 4.1) Calculations:
+C
+C  Isotope  Number Fraction    Weight Fraction       Atoms/b-cm
+C   C-12        0.000149           0.000123          0.0000000
+C   C-13        0.000002           0.000001          0.0000000
+C   N-14        0.781575           0.752324          0.0000390
+C   N-15        0.002855           0.002944          0.0000001
+C   O-16        0.210236           0.231153          0.0000105
+C   O-17        0.000080           0.000094          0.0000000
+C   O-18        0.000432           0.000535          0.0000000
+C  Ar-36        0.000016           0.000039          0.0000000
+C  Ar-38        0.000003           0.000008          0.0000000
+C  Ar-40        0.004653           0.012781          0.0000002
+C
+C  The total compound atom density (atom/b-cm):  0.0000499
+C
+C
+C  This material contains an isotope that is often modified by 
+C  an S(alpha,beta). Check MCNP Manual Appendix G to see if an
+C  S(alpha,beta) card (i.e., an MTn card) is required.
+C
+M100    06012.00c   0.000149
+        06013.00c   0.000002
+        07014.00c   0.781575
+        07015.00c   0.002855
+        08016.00c   0.210236
+        08017.00c   0.000080
+        08018.00c   0.000432
+        18036.00c   0.000016
+        18038.00c   0.000003
+        18040.00c   0.004653
+C
+C  To convert a particle flux to rad[Material]
+C  use FM  6.6316863E-10 100  -4  1 for neutrons
+C   or FM  6.6316863E-10 100  -5 -6 for photons.
+C
