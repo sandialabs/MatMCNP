@@ -10,7 +10,7 @@ calculations previously discussed and verified. It is simply a new format to out
 To invoke the XGEN input generation, simply replace the material number intended for the MCNP
 material number with "xgen". The xgen input uses a default energy of 1.0 MeV which must be changed if
 your ITS problem has a different maximum energy. The density output in the xgen input file will need
-verification if you are using less density (< 1.0e-5 g/cc) materials.
+verification if you are using low density (< 1.0e-5 g/cc) materials.
 
 With these changes, MatMCNP expects no arguments, 2 arguments, or 3 arguments.
  (1) No arguments on the command line:
